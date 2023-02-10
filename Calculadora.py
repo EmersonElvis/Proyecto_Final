@@ -206,19 +206,17 @@ def restaMatrices():
         print("Recuerde la resta entre dos matrices debe ser de la misma dimension de filas y columnas")
 #Menú General
 while True:
-    #print("\tBIENVENIDO")
-    print("\n\tCALCULADORA DE MATRICES")
-    print("""
-    [P] PRODUCTO
-    [S] SUMA
-    [R] RESTA
-    [I] INVERSA
-    [D] DETERMINANTE
-    [T] TRANSPUESTA
-    [0] SALIR """)
+    print("""\n\tCALCULADORA DE MATRICES\n
+[P] PRODUCTO
+[S] SUMA
+[R] RESTA
+[I] INVERSA
+[D] DETERMINANTE
+[T] TRANSPUESTA
+[0] SALIR """)
     Opcion=input("--->").lower().replace(" ", "")
     listaOpciones=["P", "S", "R","I","D","T","p","s","r","i","d","t", "PRODUCTO", "SUMA", "RESTA", "INVERSA", "DETERMINANTE",
-                   "TRANSPUESTA","producto","suma","resta","inversa","determinante","transpuesta",]
+                   "TRANSPUESTA","producto","suma","resta","inversa","determinante","transpuesta"]
     while Opcion in listaOpciones:
         if Opcion =="P" or Opcion=="p" or Opcion=="PRODUCTO" or Opcion=="producto":
             #ProductoMatrices()
@@ -247,10 +245,10 @@ while True:
             print("mostrando matriz transpuesta /.....")
             matrizTranspuesta()
             break
-    if Opcion not in listaOpciones:
+    if Opcion=="0" or Opcion== "salir" or Opcion == "SALIR":
+        break    
+    else:
+        if Opcion not in listaOpciones:
             print("\n¡¡Digite Opción correcta!!")
             continue
-    else:
-        if Opcion=="0" or Opcion== "salir" or Opcion == "SALIR":
-            break
 print("Fin del programa")
