@@ -78,56 +78,20 @@ def matrizTranspuesta():
     print('\nMatriz Transpuesta de A \n')
     for i in matrizTranspuesta:
         print(i)
-class Matriz:
-    def __init__(self,nfilas,ncolumnas):
-        self.nfilas = nfilas
-        self.ncolumnas = ncolumnas
-        self.matriz=[]
-        self.matrizMxN=False
-        self.matriz_cuadrada=False
-        self.operacion=""
-    def optenerDatos(self):
-        for i in range(0,self.nfilas):
-            self.matriz.append([])
-            for j in range(0,self.ncolumnas):
-                while True:
-                    try:
-                        valor=int(input(f"Ingrese elemento de la matrix en la posicion {(i+1,j+1)}--> "))
-                        break
-                    except ValueError as e:
-                        print("Ingesaste un caracter no válido vuelve a ingresar los valores. Error de tipo: {0}".format(e))
+#inversa
+def Inversa(matriz ):
+    matrizI=np.linalg.inv(matriz)
+    return matrizI
 
-                self.matriz[i].append(valor)
-        return self.matriz   
-    def pedirDatos(dato):
-            valor=-1
-            while valor<0:
-                try:
-                    valor=int(input(dato))
-                    if valor<0:
-                        print("Los datos deben ser positivos.")
-                except:
-                    print("Ingresó un caracter no válido.")
-            return valor
-    def verificarMatriz(self):
-        if self.nfilas==self.ncolumnas:
-            self.matriz_cuadrada=True
-            return self.matriz_cuadrada
-    def MostrarMatriz(self):
-      
-        for i in range(self.nfilas): 
-            print("[",end="")
-            for j in range(self.ncolumnas):
-                print(self.matriz[i][j],end="")
-            print("]")
-        print() 
-
-def inversaM(self):
-        self.MostrarMatriz()
-        if self.verificarMatriz():
-            return np.linalg.inv(self.matriz)
-        else:
-            return ("La matriz a ingresar debe ser 'cuadrada'")
+def agregarElementos(fila,columna):
+    matriz=np.zeros((fila,columna))
+    print('Intruduce los elementos de la matriz A. ')
+    for i in range(0,fila):
+        for j in range(0,columna):
+            matriz[i,j]= input('Componente ['+str(i +1)+ ' , '+str(j +1)+']: ')
+    print("La matriz Ingrsesada es ", fila ,'x', columna)
+    print(matriz)
+    return matriz
 #Menú General
 while True:
     #print("\tBIENVENIDO")
@@ -154,7 +118,11 @@ while True:
             #restaMatrices()
             break
         elif Opcion=="I" or Opcion=="i" or Opcion=="INVERSA" or Opcion=="inversa":
-            inversaM(self)
+            fila= int(input('Ingrese el número de filas de  la Matiz: '))
+            columna=int(input('Ingrese el número de columnas de la Matiz: '))
+            matrizN=agregarElementos(fila,columna)
+            print('La inversa de la matriz es: ')
+            print(Inversa(matrizN))
             break
         elif Opcion=="D" or Opcion=="d" or Opcion=="DETERMINANTE" or Opcion=="determinante":
             #determinantematrices()
