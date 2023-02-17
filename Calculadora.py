@@ -86,12 +86,23 @@ def Inversa(matriz ):
 def agregarElementos(fila,columna):
     matriz=np.zeros((fila,columna))
     print('Intruduce los elementos de la matriz A. ')
-    for i in range(0,fila):
-        for j in range(0,columna):
-            matriz[i,j]= input('Componente ['+str(i +1)+ ' , '+str(j +1)+']: ')
-    print("La matriz Ingrsesada es ", fila ,'x', columna)
-    print(matriz)
+    if fila == columna: 
+        for i in range(0,fila):
+            for j in range(0,columna):
+                matriz[i,j]= input('Componente ['+str(i +1)+ ' , '+str(j +1)+']: ')
+        print("La matriz Ingrsesada es ", fila ,'x', columna)
+        print(matriz)
+        
+    else:
+        print('No se puede realizar la operación')
     return matriz
+def imprimir():
+    fila= int(input('Ingrese el número de filas de  la Matiz: '))
+    columna=int(input('Ingrese el número de columnas de la Matiz: '))
+    a= agregarElementos(fila,columna)
+    print(a)
+    print('La inversa de la matriz es: ')
+    print(Inversa(a))
 #Menú General
 while True:
     #print("\tBIENVENIDO")
@@ -118,11 +129,7 @@ while True:
             #restaMatrices()
             break
         elif Opcion=="I" or Opcion=="i" or Opcion=="INVERSA" or Opcion=="inversa":
-            fila= int(input('Ingrese el número de filas de  la Matiz: '))
-            columna=int(input('Ingrese el número de columnas de la Matiz: '))
-            matrizN=agregarElementos(fila,columna)
-            print('La inversa de la matriz es: ')
-            print(Inversa(matrizN))
+            imprimir()
             break
         elif Opcion=="D" or Opcion=="d" or Opcion=="DETERMINANTE" or Opcion=="determinante":
             #determinantematrices()
